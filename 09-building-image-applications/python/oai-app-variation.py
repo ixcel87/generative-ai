@@ -12,18 +12,21 @@ openai = OpenAI()
 image_dir = os.path.join(os.curdir, 'images')
 
 # Initialize the image path (note the filetype should be png)
-image_path = os.path.join(image_dir, 'generated-image.png')
+image_path = os.path.join(image_dir, 'generated-image2.png')
+
+print(f'This is the image_path => {image_path}\n')
 
 # ---creating variation below---
 try:
     print("LOG creating variation")
     response = openai.images.create_variation(
-        image=open("generated-image.png", "rb"),
+        # image=open("./images/generated-image2.png", "rb"),
+        image=open(image_path, "rb"),
         n=1,
         size="1024x1024"
     )
 
-    image_path = os.path.join(image_dir, 'generated_variation.png')
+    image_path = os.path.join(image_dir, 'generated_variation2.png')
 
     image_url = response.data[0].url
 

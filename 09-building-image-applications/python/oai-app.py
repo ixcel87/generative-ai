@@ -27,7 +27,7 @@ try:
         os.mkdir(image_dir)
 
     # Initialize the image path (note the filetype should be png)
-    image_path = os.path.join(image_dir, 'generated-image.png')
+    image_path = os.path.join(image_dir, 'generated-image2.png')
 
     # Retrieve the generated image
     print(generation_response)
@@ -46,7 +46,6 @@ except client.error.InvalidRequestError as err:
     print(err)
 
 # ---creating variation below---
-
 
 response = client.images.create_variation(
   image=open(image_path, "rb"),
